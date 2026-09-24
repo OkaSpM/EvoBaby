@@ -20,8 +20,8 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r backend/requirements.txt
 cd frontend-b
 npm ci
-npm exec tsc -b
-npm exec vite build -- --config vite.config.ts --outDir dist-next
+npm exec -- tsc -b
+npm exec -- vite build --config vite.config.ts --outDir dist-next
 cd ..
 ./start-b.command
 ```
@@ -30,7 +30,7 @@ cd ..
 
 若使用包含 `frontend-b/dist-next` 的完整演示 ZIP，安装 Python 依赖后即可运行 `start-b.command`，无需再构建前端。
 
-Windows：设置 `PYTHONPATH=backend` 后，用虚拟环境的 Python 执行 `python -m uvicorn app.b_main:app --host 127.0.0.1 --port 8783`。
+Linux / Windows：激活虚拟环境后，执行 `python -m uvicorn app.b_main:app --app-dir backend --host 127.0.0.1 --port 8783`，无需 zsh。
 
 ## 展示顺序
 
