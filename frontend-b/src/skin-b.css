@@ -1,0 +1,165 @@
+.game-root-b {
+  --g-bg: #1b1e1d;
+  --g-panel: #252a28;
+  --g-line: #3b4440;
+  --g-accent: #94dcc5;
+  --g-yellow: #f0c76c;
+}
+.b-version-bar {
+  flex-shrink: 0;
+  height: 29px;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 0 24px;
+  background: #edf2f0;
+  border-bottom: 1px solid #d4ddd8;
+  color: #576b60;
+  font-size: 10px;
+}
+.b-version-bar a, .b-version-bar > span {
+  padding: 5px 16px;
+  color: inherit;
+  text-decoration: none;
+}
+.b-version-bar a:hover { color: #13684f; background: #e1eae4; }
+.b-version-bar > span { background: #243d33; color: #eaf5ef; }
+.b-version-bar small {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font: 8px ui-monospace, monospace;
+}
+.game-root-b .game-header { background: #191e1c; }
+.game-root-b .game-main { background: #edf3f1; }
+.game-root-b .game-stage-heading { background: #f3f7f5; color: #263d34; border-color: #d8e3dc; }
+.game-root-b .game-stage-heading .micro-label { color: #6a8878; }
+.game-root-b .game-stage-heading p { color: #708378; }
+.game-root-b .world-weather, .game-root-b .world-weather small { color: #607f6d; }
+.game-root-b .village-stage { padding: 0; }
+.game-root-b .world-strip { background: #e7eeeb; color: #5d7969; border-color: #d4e0d8; }
+.game-root-b .world-strip button { color: #344e40; }
+.game-root-b .world-strip button b { background: #d3e1d9; color: #345644; }
+.game-root-b .postcard-strip { background: #e3ebe5; height: 111px; gap: 10px; }
+.game-root-b .event-postcard { background: #f7faf7; border: 1px solid #cad9cf; color: #355343; transform: none; border-radius: 4px; }
+.game-root-b .event-postcard.shared-postcard { background: #e1edf1; border-color: #b9cfd9; }
+.game-root-b .event-postcard.hurt { border-left: 3px solid #d99577; }
+.game-root-b .first-postcard { color: #b67b4e; }
+.game-root-b .first-postcard strong { color: #355041; }
+.game-root-b .first-postcard span { color: #718579; }
+.game-root-b .village-knowledge, .game-root-b .trace-playground, .game-root-b .ending-wall { color: #e8ede6; background: #202725; }
+.game-root-b .game-playbar { background: #171d1a; }
+.game-root-b .game-stage-heading h1 { font-size: 21px; }
+.b-cognition-guide-link { display:flex; align-items:center; gap:5px; padding:0 12px!important; font-size:10px!important; color:#365d4c!important; }
+.b-cognition-guide-link:hover { background:#dbe8e0!important; }
+.game-root-b .tribe-member { min-height:87px; }
+.game-root-b .tribe-member-text > .cognition-badge { display:flex; align-items:center; gap:6px; color:#d4e9df; font:10px/1.5 ui-monospace,monospace; margin:2px 0; }
+.cognition-badge > span { font:9px/1.5 sans-serif; color:#a1c2b3; }
+.cognition-panel { margin:0 17px 11px; padding:10px 0; border-top:1px solid #45534a; border-bottom:1px solid #45534a; flex-shrink:0; }
+.cognition-panel > header { display:flex; align-items:center; justify-content:space-between; font-size:10px; color:#a7c0b0; }
+.cognition-panel > header > span, .cognition-panel > header > button { display:flex; align-items:center; gap:5px; }
+.cognition-panel > header > button { color:#d0e9df; font-size:10px; padding:3px 0; }
+.cognition-current { display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-top:6px; }
+.cognition-current > strong { display:flex; align-items:baseline; gap:8px; font-size:15px; font-weight:550; }
+.cognition-current > strong > b { color:#f0d580; font:18px ui-monospace,monospace; min-width:23px; }
+.cognition-current > span { color:#8da293; font:9px ui-monospace,monospace; }
+.cognition-steps { display:flex; gap:5px; margin-top:8px; }
+.cognition-steps > span { flex:1; font:8px ui-monospace,monospace; color:#809a8c; }
+.cognition-steps i { display:block; height:3px; background:#3e5145; margin-bottom:3px; }
+.cognition-steps .earned i { background:#9bd6bd; }
+.cognition-steps [aria-current] i { background:#eed188; }
+.game-root-b .cognition-goal { font-size:10px; color:#b8ccbf; line-height:1.7; margin-top:7px; overflow-wrap:anywhere; }
+.cognition-progress { margin-top:7px; }
+.cognition-progress > div { display:flex; justify-content:space-between; gap:8px; color:#95ad9d; font-size:9px; }
+.cognition-progress b { white-space:nowrap; font:9px ui-monospace,monospace; }
+.cognition-progress progress { display:block; width:100%; height:3px; margin-top:5px; border:0; border-radius:0; accent-color:#9bd6bd; background:#3e5145; }
+.cognition-progress progress::-webkit-progress-bar { background:#3e5145; }
+.cognition-progress progress::-webkit-progress-value { background:#9bd6bd; }
+.cognition-evidence { margin-top:7px; font-size:9px; line-height:1.6; color:#aac1b2; }
+.cognition-evidence summary { cursor:pointer; }
+.game-root-b .cognition-evidence p { margin-top:6px; }
+.cognition-evidence small { display:block; overflow-wrap:anywhere; margin-top:5px; font:8px/1.7 ui-monospace,monospace; color:#7f9b8c; }
+.cognition-backdrop { z-index:130; }
+.cognition-guide { width:850px; max-width:100%; max-height:calc(100dvh - 48px); overflow:auto; background:#f3f6f3; border:1px solid #d7e2d9; border-radius:6px; color:#2e473b; box-shadow:0 24px 90px #0007; }
+.cognition-guide-header { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:22px 26px 17px; border-bottom:1px solid #d4e0d8; }
+.game-root-b .cognition-guide-header .micro-label { color:#739382; }
+.cognition-guide-header h2 { font-size:22px; font-weight:600; margin-top:4px!important; }
+.cognition-identities { padding:16px 26px 9px; display:flex; align-items:center; gap:9px; }
+.cognition-identities button { display:flex; align-items:center; justify-content:center; gap:6px; font-size:11px; min-width:74px; height:32px; border-bottom:2px solid transparent!important; }
+.cognition-identities button[aria-pressed=true] { border-bottom-color:#3f7e62!important; font-weight:650; }
+.cognition-identities i { width:13px; height:13px; border-radius:50%; border:1px solid #405e3c38; }
+.cognition-preview-heading { padding:0 26px 12px; display:flex; align-items:center; justify-content:space-between; gap:8px; color:#758b7e; font-size:10px; }
+.cognition-preview-heading strong { font-size:10px; font-weight:500; color:#466f58; }
+.cognition-guide-body { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); background:#e6eee8; }
+.cognition-guide-model { min-width:0; min-height:280px; display:flex; align-items:center; justify-content:center; }
+.cognition-guide-description { padding:27px 29px 24px 14px; min-width:0; display:flex; flex-direction:column; }
+.cognition-stage-tabs { display:flex; gap:4px; align-items:center; padding:3px; background:#d3e1d8; width:max-content; border-radius:4px; }
+.cognition-stage-tabs button { width:49px; height:31px; font:12px ui-monospace,monospace; border-radius:2px; color:#5b7766; }
+.cognition-stage-tabs button[aria-pressed=true] { background:#2e5744; color:#f2f7ef; }
+.cognition-preview-description { margin-top:20px; min-height:154px; }
+.cognition-preview-description > span { color:#7e9988; font:9px ui-monospace,monospace; }
+.cognition-preview-description h3 { font-size:30px; line-height:1.35; font-weight:550; margin-top:4px!important; }
+.cognition-preview-description > strong { display:block; font-size:13px; font-weight:550; margin-top:5px; color:#537d64; }
+.game-root-b .cognition-preview-description p { font-size:12px; line-height:1.8; margin-top:13px; color:#576f5e; }
+.cognition-preview-description small { display:block; font-size:10px; color:#7e9584; margin-top:10px; }
+.game-root-b .cognition-guide-rule { font-size:10px; line-height:1.8; border-top:1px solid #cbdacf; margin-top:auto; padding-top:15px; color:#81978a; }
+.cognition-silhouettes { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; padding:17px 25px 23px; }
+.cognition-silhouettes > button { display:flex; align-items:center; flex-direction:column; padding:8px 4px 10px!important; border-bottom:2px solid transparent!important; border-radius:0; }
+.cognition-silhouettes > button.selected { border-bottom-color:#608d72!important; background:#e5eee6!important; }
+.cognition-silhouettes > button > span { font-size:11px; display:flex; gap:8px; align-items:center; }
+.cognition-silhouettes b { font:11px ui-monospace,monospace; color:#789b80; }
+.cognition-notice { position:fixed; right:326px; bottom:90px; width:335px; max-width:calc(100vw - 30px); z-index:80; border:1px solid #b7d1bd; border-left:3px solid #e3bc63; background:#f2f7f1; color:#365242; padding:10px 12px; border-radius:5px; box-shadow:0 8px 32px #18301c30; animation:cognition-reveal .32s ease-out; }
+.cognition-notice > header { display:flex; justify-content:space-between; align-items:center; color:#73927a; font-size:10px; }
+.cognition-notice > header > span { display:flex; gap:6px; align-items:center; }
+.cognition-notice .game-icon { width:23px; height:23px; }
+.cognition-notice-member { display:flex; align-items:center; gap:6px; margin-top:5px; }
+.cognition-notice-member > div { flex:1; min-width:0; }
+.cognition-notice-member strong { font-size:12px; display:flex; align-items:center; gap:10px; font-weight:600; }
+.cognition-notice-member b { font-size:10px; color:#8e793b; }
+.game-root-b .cognition-notice-member p { font-size:10px; line-height:1.65; color:#78907d; margin-top:4px; }
+@keyframes cognition-reveal { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@media (max-width: 900px) {
+  .b-version-bar { padding: 0 12px; }
+  .b-version-bar a, .b-version-bar > span { padding: 5px 12px; }
+  .b-version-bar small { font-size: 7px; }
+  .game-root-b .game-stage-heading h1 { font-size: 18px; }
+  .game-root-b .game-main .village-stage { height: 450px; min-height: 390px; padding: 0; }
+  .game-root-b .postcard-strip { height: 106px; }
+  .b-version-bar small { display:none; }
+  .b-cognition-guide-link { margin-left:auto; padding:0 6px!important; }
+  .game-root-b .tribe-member { min-height:99px; }
+  .game-root-b .tribe-member-text > .cognition-badge { justify-content:center; display:flex; font-size:9px; }
+  .game-root-b .tribe-member-text > .cognition-badge > span { font-size:8px; }
+  .game-root-b .game-inspector { max-height:none; }
+  .game-root-b .inspector-scroll { flex:none; min-height:180px; }
+  .cognition-panel { margin-left:23px; margin-right:23px; }
+  .cognition-notice { right:15px; bottom:105px; width:330px; }
+  .cognition-guide { max-height:calc(100dvh - 24px); }
+  .cognition-guide-header { padding:17px 17px 13px; }
+  .cognition-guide-header h2 { font-size:19px; }
+  .cognition-identities { padding:12px 12px 8px; gap:0; justify-content:space-between; }
+  .cognition-identities button { min-width:0; flex:1; font-size:10px; gap:4px; }
+  .cognition-preview-heading { padding:0 17px 12px; flex-wrap:wrap; font-size:9px; }
+  .cognition-preview-heading strong { font-size:9px; }
+  .cognition-guide-body { grid-template-columns:1fr; }
+  .cognition-guide-model { min-height:260px; }
+  .cognition-guide-description { padding:0 20px 18px; }
+  .cognition-stage-tabs { width:100%; }
+  .cognition-stage-tabs button { flex:1; }
+  .cognition-preview-description { margin-top:14px; min-height:140px; }
+  .cognition-preview-description h3 { font-size:25px; }
+  .game-root-b .cognition-guide-rule { margin-top:13px; padding-top:10px; }
+  .cognition-silhouettes { padding:10px 9px 17px; gap:1px; }
+  .cognition-silhouettes .wildling { width:70px; height:88px; }
+  .cognition-silhouettes > button > span { font-size:9px; gap:3px; }
+  .cognition-silhouettes b { font-size:9px; }
+}
+@media (max-height: 780px) and (min-width: 901px) {
+  .game-root-b .postcard-strip { height: 90px; padding-top: 8px; padding-bottom: 8px; }
+  .game-root-b .game-stage-heading { padding-top: 10px; padding-bottom: 10px; }
+  .game-root-b .game-stage-heading h1 { font-size: 18px; }
+  .game-root-b .game-inspector { overflow:auto; }
+  .game-root-b .inspector-scroll { flex:none; min-height:160px; }
+  .game-root-b .tribe-member { min-height:77px; }
+  .game-root-b .cognition-panel { padding-top:7px; padding-bottom:8px; }
+}

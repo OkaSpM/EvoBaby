@@ -1,0 +1,3515 @@
+{
+  "schemaVersion": 1,
+  "scope": "Fixed-seed D2 x D3 strategy deck; not all D1-D4 combinations or random worlds.",
+  "config": {
+    "seed": 42,
+    "mode": "mock",
+    "fixedChoices": {
+      "D1": "D",
+      "D4": "A"
+    },
+    "optionalChoices": true,
+    "observationWindowTurns": 60,
+    "maxTurns": 240,
+    "freshRunsPerRoute": 2
+  },
+  "engineFilesSha256": {
+    "backend/app/simulation/merged_game.py": "56bf78e8e0d95d18affea4ad0a10e116388e2e88806a96f6f04b8c5f5e05c783",
+    "backend/app/simulation/engine.py": "4d2a4d52f1e6a98a8f4efe9b3ba84889e87ab6782b8374b7d5168f58e7b14da0",
+    "backend/app/simulation/corruption.py": "c748f1cddfe3b1142016e31647bf7cdf70eb0fe542aed3195a54e5ce1fb38cda",
+    "backend/app/simulation/world.py": "983b58b3827f6ccb3fdd3a836717ea9fbf813e72e3ed6b32a0080f35a975d4b8",
+    "backend/app/simulation/cognition.py": "13a745b153a2dfc54ebebaab2da9231ebe979ca509bf0b2d337105d39449ae69"
+  },
+  "productionCardStoreUnchanged": true,
+  "paths": [
+    {
+      "path": "AA",
+      "routeId": "D1D-D2A-D3A-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "A",
+        "D3": "A",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "敲锣",
+        "D3": "换个地方再试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "敲锣之后，走到别处",
+        "strategy": "先广播争议，再让泛化结论接受跨场景检验。"
+      },
+      "paradigm": {
+        "name": "敲锣部落",
+        "totem": "🔔",
+        "tagline": "出事立刻全部落停，快，但会误伤真常识",
+        "choices": {
+          "D1": "D",
+          "D2": "A",
+          "D3": "A",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 39,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 72,
+            "observed_until_turn": 72,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": 7,
+            "repair_turns": 7,
+            "bad_actions": 1,
+            "contexts_before_adoption": 2,
+            "reported_contexts_before_adoption": 2,
+            "status": "PREVENTED",
+            "injected_turn": 72,
+            "resolved_turn": 79,
+            "observed_until_turn": 79,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：敲锣",
+          "未来验证：换个地方再试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "broadcast_freeze",
+          "meta_rule": "context_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 79,
+        "verified_before_attack1": 8,
+        "verified_at_end": 10,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "A",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "A",
+          "turn": 72
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 72
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 72,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 72,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 72,
+          "observedUntilTurn": 72
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "PREVENTED",
+          "injectedTurn": 72,
+          "detectedTurn": 79,
+          "disputedTurn": null,
+          "resolvedTurn": 79,
+          "observedUntilTurn": 79
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "AB",
+      "routeId": "D1D-D2A-D3B-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "A",
+        "D3": "B",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "敲锣",
+        "D3": "三个人才算",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "敲锣之后，三人作证",
+        "strategy": "先广播争议，再要求至少三位独立成员提供依据。"
+      },
+      "paradigm": {
+        "name": "敲锣部落",
+        "totem": "🔔",
+        "tagline": "出事立刻全部落停，快，但会误伤真常识",
+        "choices": {
+          "D1": "D",
+          "D2": "A",
+          "D3": "B",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 39,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 72,
+            "observed_until_turn": 72,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": 4,
+            "repair_turns": 4,
+            "bad_actions": 1,
+            "contexts_before_adoption": 2,
+            "reported_contexts_before_adoption": 2,
+            "status": "PREVENTED",
+            "injected_turn": 72,
+            "resolved_turn": 76,
+            "observed_until_turn": 76,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：敲锣",
+          "未来验证：三个人才算",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "broadcast_freeze",
+          "meta_rule": "source_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 76,
+        "verified_before_attack1": 8,
+        "verified_at_end": 10,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "A",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "B",
+          "turn": 72
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 72
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 72,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 72,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 72,
+          "observedUntilTurn": 72
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "PREVENTED",
+          "injectedTurn": 72,
+          "detectedTurn": 76,
+          "disputedTurn": null,
+          "resolvedTurn": 76,
+          "observedUntilTurn": 76
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "AC",
+      "routeId": "D1D-D2A-D3C-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "A",
+        "D3": "C",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "敲锣",
+        "D3": "自己先试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "敲锣之后，亲手再试",
+        "strategy": "先广播争议；之后收到常识，先由自己验证再采纳。"
+      },
+      "paradigm": {
+        "name": "敲锣部落",
+        "totem": "🔔",
+        "tagline": "出事立刻全部落停，快，但会误伤真常识",
+        "choices": {
+          "D1": "D",
+          "D2": "A",
+          "D3": "C",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 39,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 72,
+            "observed_until_turn": 72,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 3,
+            "detect_turns": 1,
+            "repair_turns": 8,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 72,
+            "resolved_turn": 80,
+            "observed_until_turn": 80,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：敲锣",
+          "未来验证：自己先试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verify_before_adopt",
+          "dispute_rule": "broadcast_freeze",
+          "meta_rule": "verify_before_adopt",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 80,
+        "verified_before_attack1": 8,
+        "verified_at_end": 10,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "A",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "C",
+          "turn": 72
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 72
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 72,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 72,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        },
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 73,
+          "belief_ids": [
+            "B111",
+            "B127",
+            "B128",
+            "B129"
+          ],
+          "evidence_id": "EV85"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 72,
+          "observedUntilTurn": 72
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "REPAIRED",
+          "injectedTurn": 72,
+          "detectedTurn": 73,
+          "disputedTurn": 73,
+          "resolvedTurn": 80,
+          "observedUntilTurn": 80
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "AD",
+      "routeId": "D1D-D2A-D3D-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "A",
+        "D3": "D",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "敲锣",
+        "D3": "不定规矩",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "敲锣之后，规则照旧",
+        "strategy": "这次广播争议，下一次不另设新的验证门槛。"
+      },
+      "paradigm": {
+        "name": "敲锣部落",
+        "totem": "🔔",
+        "tagline": "出事立刻全部落停，快，但会误伤真常识",
+        "choices": {
+          "D1": "D",
+          "D2": "A",
+          "D3": "D",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 39,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 72,
+            "observed_until_turn": 72,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 4,
+            "detect_turns": 1,
+            "repair_turns": 8,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 72,
+            "resolved_turn": 80,
+            "observed_until_turn": 80,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：敲锣",
+          "未来验证：不定规矩",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "broadcast_freeze",
+          "meta_rule": "none",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 80,
+        "verified_before_attack1": 8,
+        "verified_at_end": 10,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "A",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "D",
+          "turn": 72
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 72
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 72,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 72,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        },
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 73,
+          "belief_ids": [
+            "B111",
+            "B127",
+            "B128",
+            "B129",
+            "B130"
+          ],
+          "evidence_id": "EV85"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 72,
+          "observedUntilTurn": 72
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "REPAIRED",
+          "injectedTurn": 72,
+          "detectedTurn": 73,
+          "disputedTurn": 73,
+          "resolvedTurn": 80,
+          "observedUntilTurn": 80
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "BA",
+      "routeId": "D1D-D2B-D3A-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "B",
+        "D3": "A",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "再试一次",
+        "D3": "换个地方再试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "重复检查，再换场景",
+        "strategy": "先等同一人的反例累积，再要求跨场景验证。"
+      },
+      "paradigm": {
+        "name": "走远部落",
+        "totem": "🧭",
+        "tagline": "人多不等于地方多",
+        "choices": {
+          "D1": "D",
+          "D2": "B",
+          "D3": "A",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 21,
+            "repair_turns": 58,
+            "bad_actions": 9,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 91,
+            "observed_until_turn": 91,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": 26,
+            "repair_turns": 26,
+            "bad_actions": 1,
+            "contexts_before_adoption": 2,
+            "reported_contexts_before_adoption": 2,
+            "status": "PREVENTED",
+            "injected_turn": 91,
+            "resolved_turn": 117,
+            "observed_until_turn": 117,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：再试一次",
+          "未来验证：换个地方再试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "local_recheck:2",
+          "meta_rule": "context_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 117,
+        "verified_before_attack1": 8,
+        "verified_at_end": 12,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "B",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "A",
+          "turn": 91
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 91
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 91,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 91,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 54,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV195"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 54,
+          "disputedTurn": 54,
+          "resolvedTurn": 91,
+          "observedUntilTurn": 91
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "PREVENTED",
+          "injectedTurn": 91,
+          "detectedTurn": 117,
+          "disputedTurn": null,
+          "resolvedTurn": 117,
+          "observedUntilTurn": 117
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "BB",
+      "routeId": "D1D-D2B-D3B-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "B",
+        "D3": "B",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "再试一次",
+        "D3": "三个人才算",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "重复检查，再请三人",
+        "strategy": "先等本地反例累积，再把独立来源门槛提高到三人。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "B",
+          "D3": "B",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 21,
+            "repair_turns": 58,
+            "bad_actions": 9,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 91,
+            "observed_until_turn": 91,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "VERIFYING",
+            "injected_turn": 91,
+            "resolved_turn": null,
+            "observed_until_turn": 151,
+            "censored": true
+          }
+        },
+        "rules": [
+          "异常处理：再试一次",
+          "未来验证：三个人才算",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "local_recheck:2",
+          "meta_rule": "source_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 151,
+        "verified_before_attack1": 8,
+        "verified_at_end": 11,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "B",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "B",
+          "turn": 91
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 91
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 91,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 91,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 54,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV195"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 54,
+          "disputedTurn": 54,
+          "resolvedTurn": 91,
+          "observedUntilTurn": 91
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "VERIFYING",
+          "injectedTurn": 91,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 151
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "BC",
+      "routeId": "D1D-D2B-D3C-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "B",
+        "D3": "C",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "再试一次",
+        "D3": "自己先试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "重复检查，各自试过",
+        "strategy": "这次先本地重试，之后每个人采纳前都要自己试。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "B",
+          "D3": "C",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 21,
+            "repair_turns": 58,
+            "bad_actions": 9,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 91,
+            "observed_until_turn": 91,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 3,
+            "detect_turns": 32,
+            "repair_turns": null,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "INVESTIGATING",
+            "injected_turn": 91,
+            "resolved_turn": null,
+            "observed_until_turn": 151,
+            "censored": true
+          }
+        },
+        "rules": [
+          "异常处理：再试一次",
+          "未来验证：自己先试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verify_before_adopt",
+          "dispute_rule": "local_recheck:2",
+          "meta_rule": "verify_before_adopt",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": 3.5,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 151,
+        "verified_before_attack1": 8,
+        "verified_at_end": 12,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "B",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "C",
+          "turn": 91
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 91
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 91,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 91,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 54,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV195"
+        },
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 123,
+          "belief_ids": [
+            "B129",
+            "B139",
+            "B140",
+            "B141",
+            "B142",
+            "B143"
+          ],
+          "evidence_id": "EV365"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 54,
+          "disputedTurn": 54,
+          "resolvedTurn": 91,
+          "observedUntilTurn": 91
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "INVESTIGATING",
+          "injectedTurn": 91,
+          "detectedTurn": 123,
+          "disputedTurn": 123,
+          "resolvedTurn": null,
+          "observedUntilTurn": 151
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "BD",
+      "routeId": "D1D-D2B-D3D-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "B",
+        "D3": "D",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "再试一次",
+        "D3": "不定规矩",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "重复检查，不添规矩",
+        "strategy": "等本地反例累积后处理，不新增未来验证制度。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "B",
+          "D3": "D",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 21,
+            "repair_turns": 58,
+            "bad_actions": 9,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REPAIRED",
+            "injected_turn": 33,
+            "resolved_turn": 91,
+            "observed_until_turn": 91,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 4,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "SPREADING",
+            "injected_turn": 91,
+            "resolved_turn": null,
+            "observed_until_turn": 151,
+            "censored": true
+          }
+        },
+        "rules": [
+          "异常处理：再试一次",
+          "未来验证：不定规矩",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "local_recheck:2",
+          "meta_rule": "none",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 151,
+        "verified_before_attack1": 8,
+        "verified_at_end": 13,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "B",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "D",
+          "turn": 91
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 91
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 91,
+          "title": "部落以后如何验证常识？",
+          "reason": "调查已有实际修复结果。接下来由你决定怎样验证未来常识。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 91,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "BROADCAST_FREEZE",
+          "turn": 54,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV195"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REPAIRED",
+          "injectedTurn": 33,
+          "detectedTurn": 54,
+          "disputedTurn": 54,
+          "resolvedTurn": 91,
+          "observedUntilTurn": 91
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "SPREADING",
+          "injectedTurn": 91,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 151
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "CA",
+      "routeId": "D1D-D2C-D3A-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "C",
+        "D3": "A",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "划掉",
+        "D3": "换个地方再试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "划掉旧句，走向别处",
+        "strategy": "先撤销问题常识，再要求未来结论接受跨场景验证。"
+      },
+      "paradigm": {
+        "name": "走远部落",
+        "totem": "🧭",
+        "tagline": "人多不等于地方多",
+        "choices": {
+          "D1": "D",
+          "D2": "C",
+          "D3": "A",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 19,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 33,
+            "resolved_turn": 52,
+            "observed_until_turn": 52,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": 10,
+            "repair_turns": 10,
+            "bad_actions": 1,
+            "contexts_before_adoption": 2,
+            "reported_contexts_before_adoption": 2,
+            "status": "PREVENTED",
+            "injected_turn": 52,
+            "resolved_turn": 62,
+            "observed_until_turn": 62,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：划掉",
+          "未来验证：换个地方再试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "revoke_only",
+          "meta_rule": "context_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 62,
+        "verified_before_attack1": 8,
+        "verified_at_end": 9,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "C",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "A",
+          "turn": 52
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 52
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 52,
+          "title": "部落以后如何验证常识？",
+          "reason": "这条常识已被划掉，但没有查出完整规则。仍可选择未来的验证制度。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 52,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REVOKED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 52,
+          "observedUntilTurn": 52
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "PREVENTED",
+          "injectedTurn": 52,
+          "detectedTurn": 62,
+          "disputedTurn": null,
+          "resolvedTurn": 62,
+          "observedUntilTurn": 62
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "CB",
+      "routeId": "D1D-D2C-D3B-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "C",
+        "D3": "B",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "划掉",
+        "D3": "三个人才算",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "划掉旧句，再请三人",
+        "strategy": "先撤销问题常识，再提高独立来源人数门槛。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "C",
+          "D3": "B",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 19,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 33,
+            "resolved_turn": 52,
+            "observed_until_turn": 52,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 4,
+            "detect_turns": 15,
+            "repair_turns": 15,
+            "bad_actions": 1,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 52,
+            "resolved_turn": 67,
+            "observed_until_turn": 67,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：划掉",
+          "未来验证：三个人才算",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "revoke_only",
+          "meta_rule": "source_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 67,
+        "verified_before_attack1": 8,
+        "verified_at_end": 9,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "C",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "B",
+          "turn": 52
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 52
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 52,
+          "title": "部落以后如何验证常识？",
+          "reason": "这条常识已被划掉，但没有查出完整规则。仍可选择未来的验证制度。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 52,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        },
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 67,
+          "belief_ids": [
+            "B109",
+            "B112",
+            "B113",
+            "B114"
+          ],
+          "evidence_id": "EV238"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REVOKED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 52,
+          "observedUntilTurn": 52
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "REVOKED",
+          "injectedTurn": 52,
+          "detectedTurn": 67,
+          "disputedTurn": 67,
+          "resolvedTurn": 67,
+          "observedUntilTurn": 67
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "CC",
+      "routeId": "D1D-D2C-D3C-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "C",
+        "D3": "C",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "划掉",
+        "D3": "自己先试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "划掉旧句，亲手试过",
+        "strategy": "先撤销问题常识，之后把亲自验证放在采纳之前。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "C",
+          "D3": "C",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 19,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 33,
+            "resolved_turn": 52,
+            "observed_until_turn": 52,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 2,
+            "detect_turns": 22,
+            "repair_turns": 22,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 52,
+            "resolved_turn": 74,
+            "observed_until_turn": 74,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：划掉",
+          "未来验证：自己先试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verify_before_adopt",
+          "dispute_rule": "revoke_only",
+          "meta_rule": "verify_before_adopt",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": 3.0,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 74,
+        "verified_before_attack1": 8,
+        "verified_at_end": 10,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "C",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "C",
+          "turn": 52
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 52
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 52,
+          "title": "部落以后如何验证常识？",
+          "reason": "这条常识已被划掉，但没有查出完整规则。仍可选择未来的验证制度。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 52,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        },
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 74,
+          "belief_ids": [
+            "B109",
+            "B112",
+            "B114",
+            "B129"
+          ],
+          "evidence_id": "EV85"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REVOKED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 52,
+          "observedUntilTurn": 52
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "REVOKED",
+          "injectedTurn": 52,
+          "detectedTurn": 74,
+          "disputedTurn": 74,
+          "resolvedTurn": 74,
+          "observedUntilTurn": 74
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "CD",
+      "routeId": "D1D-D2C-D3D-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "C",
+        "D3": "D",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "划掉",
+        "D3": "不定规矩",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "划掉旧句，仍循旧规",
+        "strategy": "只撤销这条问题常识，不为未来增加新规矩。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "C",
+          "D3": "D",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": 19,
+            "repair_turns": 19,
+            "bad_actions": 3,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 33,
+            "resolved_turn": 52,
+            "observed_until_turn": 52,
+            "censored": false
+          },
+          "attack2": {
+            "spread": 4,
+            "detect_turns": 22,
+            "repair_turns": 22,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "REVOKED",
+            "injected_turn": 52,
+            "resolved_turn": 74,
+            "observed_until_turn": 74,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：划掉",
+          "未来验证：不定规矩",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "revoke_only",
+          "meta_rule": "none",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 74,
+        "verified_before_attack1": 8,
+        "verified_at_end": 11,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "C",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "D",
+          "turn": 52
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 52
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 52,
+          "title": "部落以后如何验证常识？",
+          "reason": "这条常识已被划掉，但没有查出完整规则。仍可选择未来的验证制度。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 52,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 52,
+          "belief_ids": [
+            "B56",
+            "B58",
+            "B59",
+            "B87",
+            "B92",
+            "B93"
+          ],
+          "evidence_id": "EV184"
+        },
+        {
+          "type": "REVOKE_WITHOUT_INVESTIGATION",
+          "turn": 74,
+          "belief_ids": [
+            "B109",
+            "B111",
+            "B112",
+            "B113",
+            "B117",
+            "B134",
+            "B135",
+            "B136"
+          ],
+          "evidence_id": "EV85"
+        }
+      ],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "REVOKED",
+          "injectedTurn": 33,
+          "detectedTurn": 52,
+          "disputedTurn": 52,
+          "resolvedTurn": 52,
+          "observedUntilTurn": 52
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "REVOKED",
+          "injectedTurn": 52,
+          "detectedTurn": 74,
+          "disputedTurn": 74,
+          "resolvedTurn": 74,
+          "observedUntilTurn": 74
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "DA",
+      "routeId": "D1D-D2D-D3A-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "D",
+        "D3": "A",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "算了",
+        "D3": "换个地方再试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "这次略过，下次走远",
+        "strategy": "暂不处理这次反例；窗口结束后，改用跨场景验证。"
+      },
+      "paradigm": {
+        "name": "走远部落",
+        "totem": "🧭",
+        "tagline": "人多不等于地方多",
+        "choices": {
+          "D1": "D",
+          "D2": "D",
+          "D3": "A",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 23,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "SPREADING",
+            "injected_turn": 33,
+            "resolved_turn": null,
+            "observed_until_turn": 93,
+            "censored": true
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": 23,
+            "repair_turns": 23,
+            "bad_actions": 1,
+            "contexts_before_adoption": 2,
+            "reported_contexts_before_adoption": 2,
+            "status": "PREVENTED",
+            "injected_turn": 93,
+            "resolved_turn": 116,
+            "observed_until_turn": 116,
+            "censored": false
+          }
+        },
+        "rules": [
+          "异常处理：算了",
+          "未来验证：换个地方再试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "ignore",
+          "meta_rule": "context_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 116,
+        "verified_before_attack1": 8,
+        "verified_at_end": 11,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "D",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "A",
+          "turn": 93
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 93
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 93,
+          "title": "部落以后如何验证常识？",
+          "reason": "公开观察窗口已满 60 回合，事故仍未修复；这不是成功调查。请选择是否改变流程。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 93,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "SPREADING",
+          "injectedTurn": 33,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 93
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "PREVENTED",
+          "injectedTurn": 93,
+          "detectedTurn": 116,
+          "disputedTurn": null,
+          "resolvedTurn": 116,
+          "observedUntilTurn": 116
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "DB",
+      "routeId": "D1D-D2D-D3B-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "D",
+        "D3": "B",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "算了",
+        "D3": "三个人才算",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "这次略过，下次三人",
+        "strategy": "暂不处理这次反例；窗口结束后，提高独立来源门槛。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "D",
+          "D3": "B",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 23,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "SPREADING",
+            "injected_turn": 33,
+            "resolved_turn": null,
+            "observed_until_turn": 93,
+            "censored": true
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "VERIFYING",
+            "injected_turn": 93,
+            "resolved_turn": null,
+            "observed_until_turn": 153,
+            "censored": true
+          }
+        },
+        "rules": [
+          "异常处理：算了",
+          "未来验证：三个人才算",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "ignore",
+          "meta_rule": "source_diversity",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 153,
+        "verified_before_attack1": 8,
+        "verified_at_end": 9,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "D",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "B",
+          "turn": 93
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 93
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 93,
+          "title": "部落以后如何验证常识？",
+          "reason": "公开观察窗口已满 60 回合，事故仍未修复；这不是成功调查。请选择是否改变流程。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 93,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "SPREADING",
+          "injectedTurn": 33,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 93
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "VERIFYING",
+          "injectedTurn": 93,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 153
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "DC",
+      "routeId": "D1D-D2D-D3C-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "D",
+        "D3": "C",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "算了",
+        "D3": "自己先试",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "这次略过，下次亲试",
+        "strategy": "暂不处理这次反例；窗口结束后，采纳前先亲自验证。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "D",
+          "D3": "C",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 23,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "SPREADING",
+            "injected_turn": 33,
+            "resolved_turn": null,
+            "observed_until_turn": 93,
+            "censored": true
+          },
+          "attack2": {
+            "spread": 1,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "INJECTED",
+            "injected_turn": 93,
+            "resolved_turn": null,
+            "observed_until_turn": 153,
+            "censored": true
+          }
+        },
+        "rules": [
+          "异常处理：算了",
+          "未来验证：自己先试",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verify_before_adopt",
+          "dispute_rule": "ignore",
+          "meta_rule": "verify_before_adopt",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 153,
+        "verified_before_attack1": 8,
+        "verified_at_end": 12,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "D",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "C",
+          "turn": 93
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 93
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 93,
+          "title": "部落以后如何验证常识？",
+          "reason": "公开观察窗口已满 60 回合，事故仍未修复；这不是成功调查。请选择是否改变流程。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 93,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "SPREADING",
+          "injectedTurn": 33,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 93
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "INJECTED",
+          "injectedTurn": 93,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 153
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    },
+    {
+      "path": "DD",
+      "routeId": "D1D-D2D-D3D-D4A",
+      "choices": {
+        "D1": "D",
+        "D2": "D",
+        "D3": "D",
+        "D4": "A"
+      },
+      "choiceLabels": {
+        "D1": "让它自己挑",
+        "D2": "算了",
+        "D3": "不定规矩",
+        "D4": "够了"
+      },
+      "shortCopy": {
+        "title": "这次略过，下次照旧",
+        "strategy": "不处理这次反例，也不新增未来验证制度。"
+      },
+      "paradigm": {
+        "name": "糊涂部落",
+        "totem": "🌫",
+        "tagline": "划掉了错的，也不知道为什么错",
+        "choices": {
+          "D1": "D",
+          "D2": "D",
+          "D3": "D",
+          "D4": "A"
+        },
+        "metrics": {
+          "attack1": {
+            "spread": 3,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 23,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "SPREADING",
+            "injected_turn": 33,
+            "resolved_turn": null,
+            "observed_until_turn": 93,
+            "censored": true
+          },
+          "attack2": {
+            "spread": 2,
+            "detect_turns": null,
+            "repair_turns": null,
+            "bad_actions": 0,
+            "contexts_before_adoption": 1,
+            "reported_contexts_before_adoption": 1,
+            "status": "SPREADING",
+            "injected_turn": 93,
+            "resolved_turn": null,
+            "observed_until_turn": 153,
+            "censored": true
+          }
+        },
+        "rules": [
+          "异常处理：算了",
+          "未来验证：不定规矩",
+          "个人记录和采纳记录分开保存，共享知识保留来源"
+        ],
+        "protocol": {
+          "message_types": [
+            "SHARE_BELIEF",
+            "REQUEST_VERIFICATION",
+            "SUBMIT_EVIDENCE",
+            "RAISE_DISPUTE"
+          ],
+          "adoption_rule": "verified_shared_belief",
+          "dispute_rule": "ignore",
+          "meta_rule": "none",
+          "trust_boundary": "personal and shared beliefs stored separately; lineage required"
+        },
+        "applies_to": [
+          "shared knowledge base",
+          "multi-agent research",
+          "reconciliation bots"
+        ],
+        "cost": {
+          "adoption_delay_turns": null,
+          "token_overhead_pct": null,
+          "note": "本次是离线 mock；无真实模型 token 成本，未发生的采纳延迟不填估算值。"
+        },
+        "seed": 42,
+        "completed_turn": 153,
+        "verified_before_attack1": 8,
+        "verified_at_end": 12,
+        "observation_window_turns": 60,
+        "memberCognition": [
+          {
+            "agentId": "A1",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A2",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A3",
+            "stage": 3,
+            "name": "求证者"
+          },
+          {
+            "agentId": "A4",
+            "stage": 4,
+            "name": "引路者"
+          },
+          {
+            "agentId": "A5",
+            "stage": 3,
+            "name": "求证者"
+          }
+        ]
+      },
+      "choiceEvents": [
+        {
+          "point": "D1",
+          "option": "D",
+          "turn": 33
+        },
+        {
+          "point": "D2",
+          "option": "D",
+          "turn": 52
+        },
+        {
+          "point": "D3",
+          "option": "D",
+          "turn": 93
+        },
+        {
+          "point": "D4",
+          "option": "A",
+          "turn": 93
+        }
+      ],
+      "choicePrompts": [
+        {
+          "point": "D1",
+          "turn": 33,
+          "title": "谣言会找上谁？",
+          "reason": "部落已有经独立验证的共享知识，第一轮攻击现在可发生。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D2",
+          "turn": 52,
+          "title": "有人按常识行动，却掉了能量。",
+          "reason": "A1 在 SW / Rain 使用苔藓，实际能量变化 -8。部落如何处理？",
+          "evidence_ids": [
+            "EV184"
+          ]
+        },
+        {
+          "point": "D3",
+          "turn": 93,
+          "title": "部落以后如何验证常识？",
+          "reason": "公开观察窗口已满 60 回合，事故仍未修复；这不是成功调查。请选择是否改变流程。",
+          "evidence_ids": []
+        },
+        {
+          "point": "D4",
+          "turn": 93,
+          "title": "第二次谣言前，还要改变门槛吗？",
+          "reason": "这次加码会改变后续验证门槛与任务。",
+          "evidence_ids": []
+        }
+      ],
+      "policyEvents": [],
+      "incidentTimings": [
+        {
+          "id": "I1",
+          "attackNumber": 1,
+          "status": "SPREADING",
+          "injectedTurn": 33,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 93
+        },
+        {
+          "id": "I2",
+          "attackNumber": 2,
+          "status": "SPREADING",
+          "injectedTurn": 93,
+          "detectedTurn": null,
+          "disputedTurn": null,
+          "resolvedTurn": null,
+          "observedUntilTurn": 153
+        }
+      ],
+      "verification": {
+        "freshRuns": 2,
+        "identical": true,
+        "comparison": "full recorded route payload"
+      }
+    }
+  ],
+  "sameEndingGroups": {
+    "敲锣部落": [
+      "AA",
+      "AB",
+      "AC",
+      "AD"
+    ],
+    "走远部落": [
+      "BA",
+      "CA",
+      "DA"
+    ],
+    "糊涂部落": [
+      "BB",
+      "BC",
+      "BD",
+      "CB",
+      "CC",
+      "CD",
+      "DB",
+      "DC",
+      "DD"
+    ]
+  },
+  "indistinguishableMetricGroups": [
+    [
+      "DB",
+      "DC"
+    ]
+  ],
+  "metricSignatureFields": [
+    "spread",
+    "detect_turns",
+    "repair_turns",
+    "bad_actions",
+    "contexts_before_adoption"
+  ],
+  "differentEndingCount": 3,
+  "limits": [
+    "16 strategy routes do not mean 16 distinct endings; the current engine has six ordered ending labels.",
+    "No world rules, thresholds, seeds, or observations are changed to force a desired ending.",
+    "PREVENTED, REVOKED, REPAIRED, and unresolved observations retain separate raw statuses.",
+    "Negative detect_turns reference earlier evidence and must not be drawn as a negative discovery duration.",
+    "Detection, public first-anomaly prompt, and dispute timestamps are not interchangeable.",
+    "First-attack metrics and incident timings are frozen at D3, before the second attack.",
+    "Cards retain the engine's original tagline as raw data; it is not an independently proven causal claim.",
+    "Offline mock has no measured real-model token cost; no claim of cloud-agent execution is made."
+  ]
+}

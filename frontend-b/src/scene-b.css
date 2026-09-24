@@ -1,0 +1,192 @@
+.b-world-scene.wild-world-scene {
+  --b-scene-ink: #294a40;
+  background: #e2ebe5;
+  color: var(--b-scene-ink);
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: none;
+  min-width: 0;
+  isolation: isolate;
+}
+.game-main:has(.village-stage) { overflow-y: auto; }
+.game-main .village-stage { flex: 1 0 540px; min-height: 540px; }
+.b-scene-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 23px 25px 0;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.b-scene-heading > div:first-child { min-width: 0; }
+.b-scene-heading > div > span {
+  font: 600 10px/1.4 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0;
+  color: #698576;
+}
+.b-scene-heading h2 {
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 5px 0 0;
+  font-weight: 650;
+  letter-spacing: 0;
+  color: #294a40;
+}
+.b-scene-weather {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  color: #627e6b;
+  padding-top: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.b-scene-weather b { padding-left: 7px; font: 500 11px/1.4 "SFMono-Regular", Consolas, monospace; color: #607c70; }
+.b-world-scene.is-inspecting .b-scene-heading { padding-top: 10px; padding-bottom: 2px; align-items: center; }
+.b-world-scene.is-inspecting .b-scene-heading > div > span { display: none; }
+.b-world-scene.is-inspecting .b-scene-heading h2 { font-size: 16px; line-height: 1.5; margin: 0; }
+.b-world-scene.is-inspecting .b-scene-weather { padding-top: 0; }
+.b-world-scene.is-inspecting .b-scene-roster,
+.b-world-scene.is-inspecting .b-region-key,
+.b-world-scene.is-inspecting .b-map-orientation { display: none; }
+.b-scene-stage {
+  position: relative;
+  height: clamp(430px, 53vh, 650px);
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+  flex: 1 1 auto;
+  min-height: 190px;
+}
+.b-scene-stage > canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  outline: none;
+}
+.b-scene-tools {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 4;
+}
+.b-world-scene .b-scene-tools button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #cad6cd;
+  border-radius: 5px;
+  color: #577463;
+  background: #f5f8f1e8;
+  cursor: pointer;
+  transition: background .15s;
+}
+.b-world-scene .b-scene-tools button:hover { background: #fff; border-color: #91ab98; }
+.b-world-scene button:focus-visible { outline: 2px solid #3e867d; outline-offset: 3px; }
+.b-scene-views { position: absolute; top: 22px; left: 20px; display: flex; gap: 5px; z-index: 4; }
+.b-world-scene .b-scene-views button { width: 32px; height: 32px; display: grid; place-items: center; padding: 0; color: #6d8777; background: #f3f7f0bb; border: 1px solid #ccd9cc; border-radius: 5px; }
+.b-world-scene .b-scene-views button[aria-pressed="true"] { background: #456f5d; color: #f4f8ec; border-color: #456f5d; }
+.b-world-scene .b-scene-views button:hover:not(:disabled) { border-color: #799c85; }
+.b-world-scene .b-scene-views button:disabled { opacity: .38; cursor: not-allowed; }
+.b-map-orientation { position: absolute; top: 74px; left: 29px; display: flex; flex-direction: column; align-items: center; gap: 5px; color: #7a9485; font: 500 9px/1 monospace; pointer-events: none; }
+.b-map-orientation i { width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 18px solid #91ab98; transform: rotate(-38deg); }
+.b-grid-axes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+.b-grid-axis-label { position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; gap: 2px; min-width: 14px; height: 15px; padding: 0 2px; border-radius: 2px; background: #f5f8efde; color: #496b59; font: 600 9px/1 "SFMono-Regular", Consolas, monospace; visibility: hidden; }
+.b-grid-axis-label small { color: #6e8877; font: 400 7px/1 monospace; }
+.b-agent-labels { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+.b-world-scene .b-agent-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 22px;
+  min-width: 43px;
+  padding: 0 6px;
+  background: #fbfcf6ed;
+  color: #3b5a4d;
+  border: 1px solid;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px #36523d13;
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 650;
+  white-space: nowrap;
+  pointer-events: auto;
+  cursor: pointer;
+  visibility: hidden;
+  transition: background .15s;
+}
+.b-agent-label i { width: 5px; height: 5px; border-radius: 50%; }
+.b-agent-label small { font-size: 8px; color: #798d80; }
+.b-world-scene .b-agent-label.is-selected { color: #234b3e; background: #fff; border-width: 2px; box-shadow: 0 2px 8px #2e5e3430; }
+.b-region-key { position: absolute; left: 24px; bottom: 15px; display: grid; grid-template-columns: repeat(2, auto); gap: 6px 15px; font-size: 9px; color: #758c7d; pointer-events: none; }
+.b-region-key span { display: inline-flex; align-items: center; gap: 5px; }
+.b-region-key i { width: 6px; height: 6px; border-radius: 1px; transform: rotate(45deg); }
+.b-model-status { position: absolute; right: 22px; bottom: 14px; color: #6f8a7b; font: 9px/1.4 "SFMono-Regular", Consolas, monospace; pointer-events: none; max-width: 150px; text-align: right; }
+.b-scene-roster { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; padding: 3px 18px 13px; flex-shrink: 0; }
+.b-world-scene .b-scene-roster button { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 5px 8px; min-width: 61px; height: 28px; border: 1px solid transparent; background: transparent; color: #597665; font-size: 10px; border-radius: 4px; cursor: pointer; }
+.b-scene-roster button i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid #648d6729; }
+.b-scene-roster button small { color: #809184; font-size: 9px; min-width: 12px; }
+.b-world-scene .b-scene-roster button:hover { background: #ffffff70; }
+.b-world-scene .b-scene-roster button.is-selected { background: #fafcf3; border-color: #bdccbb; color: #365b47; }
+.b-scene-caption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 7px 12px; border-top: 1px solid #d0dcd2; padding: 12px 24px; font-size: 10px; color: #6c8677; flex-shrink: 0; }
+.b-scene-caption span, .b-scene-caption strong { display: inline-flex; align-items: center; gap: 5px; font-weight: 450; }
+.b-scene-caption strong { color: #3f7864; }
+.b-rain-sheet { position: absolute; inset: 0; pointer-events: none; overflow: hidden; opacity: .32; }
+.b-rain-sheet i { position: absolute; width: 1px; height: 11px; background: #829fab; transform: rotate(12deg); animation: b-scene-rain 1.35s linear infinite; }
+@keyframes b-scene-rain { from { translate: 0 -40px; opacity: 0; } 20% { opacity: .6; } to { translate: -18px 170px; opacity: 0; } }
+.b-webgl-fallback { position: absolute; inset: 30px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; font-size: 12px; color: #597663; text-align: center; }
+.b-webgl-fallback > span { max-width: 260px; line-height: 1.8; }
+.b-fallback-grid { display: grid; gap: 3px; width: min(270px, 100%); aspect-ratio: 1; transform: rotate(-7deg); }
+.b-fallback-grid > span { border-radius: 3px; }
+@media (max-width: 700px) {
+  .game-main .village-stage { flex: none; min-height: 500px; height: 500px; }
+  .b-scene-heading { padding: 19px 18px 0; gap: 8px; }
+  .b-scene-heading h2 { font-size: 20px; }
+  .b-scene-heading > div > span { font-size: 9px; }
+  .b-scene-stage { height: 430px; }
+  .b-scene-weather { font-size: 11px; gap: 4px; }
+  .b-scene-weather b { padding-left: 2px; font-size: 10px; }
+  .b-scene-tools { right: 13px; top: 16px; }
+  .b-scene-views { left: 15px; top: 16px; }
+  .b-map-orientation { left: 23px; top: 66px; }
+  .b-region-key { left: 19px; bottom: 15px; }
+  .b-model-status { right: 16px; bottom: 15px; }
+  .b-scene-caption { padding: 11px 18px; }
+}
+@media (max-width: 430px) {
+  .b-scene-stage { height: 380px; }
+  .b-scene-roster { gap: 2px; padding-left: 9px; padding-right: 9px; }
+  .b-world-scene .b-scene-roster button { min-width: 56px; padding: 4px 6px; }
+  .b-scene-caption { font-size: 9px; gap: 8px; }
+  .b-model-status { max-width: 125px; font-size: 8px; }
+  .b-grid-axis-label { font-size: 8px; height: 13px; min-width: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .b-rain-sheet i { animation: none; opacity: .4; }
+}
+.b-agent-stage { display: inline-block; min-width: 13px; font-size: 9px; line-height: 1; font-weight: 800; color: #526b61; }
+.cognition-3d-preview { position: relative; width: 100%; min-width: 0; aspect-ratio: 1; min-height: 280px; max-height: 420px; background: #edf2ee; overflow: hidden; }
+.cognition-3d-viewport { position: absolute; inset: 0; }
+.cognition-3d-viewport canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.cognition-3d-status { position: absolute; bottom: 12px; left: 14px; font-size: 10px; font-weight: 650; color: #5a7468; pointer-events: none; }
+.cognition-3d-tools { position: absolute; right: 12px; bottom: 9px; display: flex; gap: 4px; }
+.cognition-3d-tools button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 1px solid #c9d7ce; border-radius: 6px; color: #3c6657; background: #f8fcf9; cursor: pointer; }
+.cognition-3d-tools button:hover { background: #e3eee7; }
+.cognition-3d-tools button:focus-visible { outline: 2px solid #4d8c7a; outline-offset: 2px; }
+.cognition-3d-tools button:disabled { opacity: .5; cursor: default; }

@@ -1,0 +1,29 @@
+.b-mission { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 1px solid #40564b; background: #253b32; color: #e7ede5; }
+.b-mission > svg { color: #bddd93; flex: 0 0 auto; }
+.b-mission > div { flex: 1; min-width: 0; }
+.b-mission span { display: block; color: #b2c3b6; font-size: 11px; margin-bottom: 4px; }
+.b-mission strong { font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+.b-mission p { margin: 4px 0 0; font-size: 12px; line-height: 1.6; color: #c0cfc5; }
+.b-mission button { flex-shrink: 0; white-space: normal; }
+.b-review-workspace { min-width: 0; padding: 0 24px; color: #e6ece4; background: #202e27; }
+.b-review-loading { margin: 0; padding: 10px 18px; font-size: 12px; color: #bac9bd; }
+.b-trace-cases { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 20px; border-bottom: 1px solid #3a493f; }
+.b-trace-cases button { display: flex; align-items: center; gap: 8px; background: transparent; border: 0; border-bottom: 2px solid transparent; color: #becabe; padding: 8px 10px; cursor: pointer; font: inherit; font-size: 13px; }
+.b-trace-cases button[aria-selected="true"] { border-color: #cfdf9e; color: #f0f3e9; }
+.b-trace-cases small { font-size: 11px; color: #93b8a8; }
+.b-ended-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.judge-dashboard-b .b-review-workspace { color: #e6ece4; background: #202e27; margin: 20px 0; border-block: 1px solid #3e5647; }
+.game-root-b .game-nav { flex-wrap: wrap; }
+.game-root-b .game-header { flex-wrap: wrap; min-height: 64px; }
+.game-root-b .game-header-tools { margin-left: auto; }
+.game-root-b .game-stage-heading .micro-label { letter-spacing: 0; }
+@media (max-width: 720px) {
+  .b-review-workspace { padding: 0 16px; }
+  .b-mission { align-items: flex-start; flex-wrap: wrap; padding: 12px 14px; gap: 9px; }
+  .b-mission > div { flex-basis: calc(100% - 32px); }
+  .b-mission > button { margin-left: 29px; max-width: calc(100% - 29px); }
+  .b-mission strong { font-size: 15px; }
+  .b-trace-cases { padding: 8px 12px; }
+  .game-root-b .game-header-tools { margin-left: 0; }
+  .game-root-b .judge-switch { display: inline-flex; }
+}

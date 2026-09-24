@@ -1,0 +1,43 @@
+.cognition-feedback { margin-top: 10px; border-top: 1px solid #dce4df; padding-top: 9px; color: #435e51; }
+.cognition-feedback > div { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 9px; font-size: 11px; }
+.cognition-feedback strong { font-size: 12px; color: #48604f; }
+.cognition-feedback time { margin-left: auto; color: #758177; }
+.cognition-feedback p { margin: 6px 0; font-size: 12px; line-height: 1.65; overflow-wrap: anywhere; }
+.cognition-feedback small { font-size: 11px; line-height: 1.6; }
+.cognition-feedback[data-feedback-state="review"] strong { color: #93652d; }
+.cognition-feedback[data-feedback-state="misaligned"] strong { color: #aa514c; }
+.cognition-feedback[data-feedback-state="rebuilding"] strong { color: #76619c; }
+.cognition-feedback[data-feedback-state="recovered"] strong { color: #37775c; }
+.cognition-feedback.is-compact { margin-top: 4px; padding-top: 0; border-top: 0; }
+.game-root-b .cognition-panel .cognition-feedback { color: #e2ece5; border-color: #64776a; }
+.game-root-b .cognition-panel .cognition-feedback p { color: #e2ece5; }
+.game-root-b .cognition-panel .cognition-feedback small,
+.game-root-b .cognition-panel .cognition-feedback time { color: #bbcec0; }
+.game-root-b .cognition-panel .cognition-feedback strong { color: #e2ece5; }
+.game-root-b .cognition-panel .cognition-feedback[data-feedback-state="review"] strong { color: #f4d48c; }
+.game-root-b .cognition-panel .cognition-feedback[data-feedback-state="misaligned"] strong { color: #ffb5a7; }
+.game-root-b .cognition-panel .cognition-feedback[data-feedback-state="rebuilding"] strong { color: #d6c3fb; }
+.game-root-b .cognition-panel .cognition-feedback[data-feedback-state="recovered"] strong { color: #a5e6be; }
+.game-root-b .cognition-guide .cognition-feedback { color: #354d40; }
+.game-root-b .cognition-guide .cognition-feedback p { color: #354d40; }
+.b-card-facts { padding: 0 34px 26px; }
+.b-card-facts > section { border-top: 1px solid #d7e0d9; padding: 18px 0; }
+.b-card-facts h3 { margin: 0 0 12px; font-size: 15px; font-weight: 650; color: #354b40; }
+.b-card-facts p { margin: 5px 0; font-size: 12px; line-height: 1.7; color: #52665a; overflow-wrap: anywhere; }
+.b-card-growth { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.b-card-growth > div { min-width: 0; }
+.b-card-growth strong, .b-card-growth span, .b-card-growth small { display: block; }
+.b-card-growth strong { font-size: 12px; color: #354b40; }
+.b-card-growth span { font-size: 12px; margin: 5px 0; }
+.b-card-growth small { font-size: 11px; color: #657469; line-height: 1.6; }
+.b-fact-chronicles { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.b-fact-chronicles h4 { margin: 0 0 9px; font-size: 13px; color: #395747; }
+.b-fact-chronicles dl { margin: 0; }
+.b-fact-chronicles dl > div { display: flex; justify-content: space-between; gap: 12px; margin: 7px 0; font-size: 12px; line-height: 1.5; }
+.b-fact-chronicles dt { color: #67756c; }
+.b-fact-chronicles dd { margin: 0; text-align: right; color: #354b40; }
+.b-card-facts ul { padding-left: 17px; margin: 8px 0; }
+.b-card-facts li { font-size: 12px; line-height: 1.7; color: #52665a; margin: 6px 0; }
+.b-card-facts .b-fact-gap { color: #995e4f; }
+.b-card-receipt > header > p { font-size: 12px; line-height: 1.7; color: #52665a; margin: 8px 0 0; }
+@media (max-width: 560px) { .b-card-facts { padding: 0 20px 18px; } .b-card-growth { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } .b-fact-chronicles { grid-template-columns: 1fr; gap: 18px; } }
